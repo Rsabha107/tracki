@@ -16,10 +16,10 @@
     <!-- ===============================================-->
     <!--    Favicons-->
     <!-- ===============================================-->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('assets/img/favicons/apple-touch-icon.png')}}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('assets/img/favicons/favicon-32x32.png')}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/img/favicons/favicon-16x16.png')}}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/img/favicons/favicon.ico')}}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('assets/img/favicons/apple-touch-icon.jpg')}}">
+    <link rel="icon" type="image/jpg" sizes="32x32" href="{{asset('assets/img/favicons/sparkle_hrms.jpg')}}">
+    <link rel="icon" type="image/jpg" sizes="16x16" href="{{asset('assets/img/favicons/sparkle_hrms.jpg')}}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/img/favicons/sparkle_hrms.jpg')}}">
     <link rel="manifest" href="{{asset('assets/img/favicons/manifest.json')}}">
     <meta name="msapplication-TileImage" content="{{asset('assets/img/favicons/mstile-150x150.png')}}">
     <meta name="theme-color" content="#ffffff">
@@ -70,7 +70,7 @@
                 <div class="row flex-center min-vh-100 py-5">
 
                     <div class="col-sm-10 col-md-8 col-lg-5 col-xl-5 col-xxl-3"><a class="d-flex flex-center text-decoration-none mb-4" href="{{ route('dashboard') }}">
-                            <div class="d-flex align-items-center fw-bolder fs-3 d-inline-block"><img src="../../../assets/img/icons/logo.png" alt="phoenix" width="58" />
+                            <div class="d-flex align-items-center fw-bolder fs-3 d-inline-block"><img src="../../../assets/img/icons/sparkle_hrms.jpg" alt="phoenix" width="58" />
                             </div>
                         </a>
                         <div class="text-center mb-7">

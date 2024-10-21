@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'page_title' => 'TrackiEMS',
+    'page_title' => 'Sparkle HRMS',
     'event' => [
         'create_form_title' => 'Create an new event',
         'name_field'      => 'event name',

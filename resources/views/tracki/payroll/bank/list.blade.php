@@ -13,7 +13,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb breadcrumb-style1">
                         <li class="breadcrumb-item">
-                            <a href="{{route('tracki.dashboard')}}"><?= get_label('home', 'Home') ?></a>
+                            <a href="{{route('dashboard')}}"><?= get_label('home', 'Home') ?></a>
                         </li>
                         <li class="breadcrumb-item active">
                             <?= get_label('employees', 'Employees') ?>

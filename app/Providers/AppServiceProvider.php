@@ -10,6 +10,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Validation\Rules\Password;
 use Laravel\Sanctum\Sanctum;
 
 class AppServiceProvider extends ServiceProvider
@@ -30,9 +31,17 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         // URL::forceScheme('https');
-        if($this->app->environment('azure')) {
+        if ($this->app->environment('azure')) {
             URL::forceScheme('https');
         }
+
+        Password::defaults(function () {
+            return Password::min(8)
+                ->mixedCase()
+                ->letters()
+                ->numbers()
+                ->symbols();
+        });
 
 
         Carbon::setWeekendDays([
@@ -52,15 +61,15 @@ class AppServiceProvider extends ServiceProvider
 
             // dd($workspaces);
 
-            $data = [   'statuses' => $statuses,
-                        'priorities' => $priorities,
-                        'workspaces' => $workspaces,
-                        // 'general_settings' => $general_settings,
-                    ];
+            $data = [
+                'statuses' => $statuses,
+                'priorities' => $priorities,
+                'workspaces' => $workspaces,
+                // 'general_settings' => $general_settings,
+            ];
 
             view()->share($data);
         } catch (\Exception $e) {
         }
-
     }
 }

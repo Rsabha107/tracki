@@ -59,6 +59,7 @@ return [
     'vaccine_name' => 'Type of vaccination',
     'coming_with_family' => 'Are you coming with your spouse or kid ?',
     'relationship' => 'Relationship',
+    'link_expired' => 'Reset link has expired.  Please click on Forgot Password for a new link.',
     'buttons' => [
         'login' => 'Log in',
         'logout' => 'Log out',

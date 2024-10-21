@@ -232,7 +232,7 @@ class EmployeeDashboardController extends Controller
                     ->whereYear('contract_start_date', date('Y'));
             })
             ->groupBy('cal.month')
-            ->orderBy('cal.month_num')
+            // ->orderBy('cal.month_num')
             ->get();
 
         // $projects_by_month = DB::table('events')->select(DB::raw('IFNULL(count(date_format(end_date, "%m")), 0) count, cal.month'))

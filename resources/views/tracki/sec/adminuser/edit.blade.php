@@ -16,7 +16,7 @@
                         <div class="row align-items-center gx-0 gy-7">
                             <div class="col mx-auto">
                                 <div class="auth-form-box">
-                                    <div class="text-center mb-5"><a class="d-flex flex-center text-decoration-none mb-4" href="{{route('tracki.dashboard')}}">
+                                    <div class="text-center mb-5"><a class="d-flex flex-center text-decoration-none mb-4" href="{{route('dashboard')}}">
                                             <div class="d-flex align-items-center fw-bolder fs-3 d-inline-block">
                                                 <img src="{{asset('assets/img/icons/LogoPrintemps_2022_vert.png')}}" alt="Printemps" width="58" />
                                             </div>

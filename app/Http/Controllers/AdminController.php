@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Department;
 // use App\Models\Event;
 use App\Models\FunctionalArea;
+use App\Models\PasswordResetToken;
 // use App\Models\OrganizationBudget;
 // use App\Models\Task;
 // use Beta\Microsoft\Graph\Model\Storage as ModelStorage;
@@ -24,6 +25,8 @@ use Carbon\Carbon;
 // use Dcblogdev\MsGraph\Facades\MsGraph;
 use Exception;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Validation\Rules\Password;
+use Illuminate\Validation\ValidationException;
 // use Illuminate\Support\Facades\RateLimiter;
 // use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
@@ -33,14 +36,23 @@ use Illuminate\View\View;
 
 class AdminController extends Controller
 {
- 
+
     public function login(LoginRequest $request)
     {
 
-        // $fields = $request->validate([
+        // $rules = $request->validate([
         //     'email' => ['required', 'email'],
         //     'password' => ['required'],
         // ]);
+
+        // $validator = Validator::make($request->all(), $rules);
+
+        // if ($validator->fails()) {
+        //     return redirect()->back()
+        //         ->withInput()
+        //         ->withErrors($validator);
+        // }
+
         Log::info('AdminController::login');
         Log::info($request);
 
@@ -49,6 +61,14 @@ class AdminController extends Controller
         // RateLimiter::hit($this->throttleKey());
 
         $request->session()->regenerate();
+
+        $user = User::find(Auth::user()->id);
+        // dd($user, $user->hasRole('HRMSADMIN'));
+        if (!in_array($request->ip(), config('tracki.white_list_ip_address')) && $user->hasRole('HRMSADMIN')) {
+            throw ValidationException::withMessages([
+                'email' => 'You are not allowed to login as admin from the current ip address',
+            ]);
+        }
 
         //  dd('login');
         return redirect()->intended('/');
@@ -72,8 +92,17 @@ class AdminController extends Controller
         // return view('tracki.auth.sign-in');
     } // End method
 
-    public function signIn()
+    public function signIn(Request $request)
     {
+        // dd(
+        //     $_SERVER,
+        //     request()->ip(),
+        //     request()->ips(),
+        //     request()->isFromTrustedProxy(),
+        //     request()->getClientIp(true),
+        //     config('tracki.white_list_ip_address'),
+        // );
+
         Auth::guard('web')->logout();
         return view('tracki.auth.sign-in');
     }
@@ -109,6 +138,7 @@ class AdminController extends Controller
         $token = sha1(time() . config('global.key'));
 
         try {
+            PasswordResetToken::where('email', $request->email)->delete();
             DB::table('password_reset_tokens')->insert([
                 'email' => $request->email,
                 'token' => $token,
@@ -137,16 +167,27 @@ class AdminController extends Controller
         return back()->with('message', 'We have e-mailed your password reset link!');
     } //submitForgetPasswordForm
 
-    public function showResetPasswordForm($token): View
+    public function showResetPasswordForm($token)
     {
-        return view('tracki.auth.reset', ['token' => $token]);
+        $ptoken = PasswordResetToken::where('token', $token)
+            ->where('created_at', '>', Carbon::now()->subHours(1)->toDateTimeString())
+            ->first();
+
+        // dd($ptoken);
+        if ($ptoken) {
+            return view('tracki.auth.reset', ['token' => $token]);
+        } else {
+            return redirect()->route('tracki.auth.signin')
+                ->withInput()
+                ->withErrors(__('traki.link_expired'));
+        }
     } //showResetPasswordForm
 
     public function submitResetPasswordForm(Request $request): RedirectResponse
     {
         $rules = [
             'email' => 'required|email|exists:users',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => ['required', 'confirmed', Password::defaults()],
             'password_confirmation' => 'required'
         ];
 
@@ -157,8 +198,6 @@ class AdminController extends Controller
                 ->withInput()
                 ->withErrors($validator);
         }
-
-
 
         $updatePassword = DB::table('password_reset_tokens')
             ->where([
@@ -172,8 +211,10 @@ class AdminController extends Controller
         }
 
         $user = User::where('email', $request->email)
-            ->update(['password' => Hash::make($request->password),
-                     'status' => 1]);
+            ->update([
+                'password' => Hash::make($request->password),
+                'status' => 1
+            ]);
 
         DB::table('password_reset_tokens')->where(['email' => $request->email])->delete();
 

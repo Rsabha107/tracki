@@ -13,6 +13,7 @@ return [
         'active' => 10,
     ],
 
+    'white_list_ip_address' => ['127.1.0.1'],
     'project_status' => [
         'completed' => 13,
         'inprogress' => 11,

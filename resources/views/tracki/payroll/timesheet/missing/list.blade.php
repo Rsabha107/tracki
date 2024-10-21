@@ -13,7 +13,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb breadcrumb-style1">
                         <li class="breadcrumb-item">
-                            <a href="{{route('tracki.dashboard')}}"><?= get_label('home', 'Home') ?></a>
+                            <a href="{{route('dashboard')}}"><?= get_label('home', 'Home') ?></a>
                         </li>
                         <li class="breadcrumb-item active">
                             <?= get_label('employees', 'Employees') ?>
@@ -30,7 +30,7 @@
         </div>
         <div class="row g-3 mb-4">
             <div class="col-auto">
-                <h2 class="mb-0">Employees</h2>
+                <h2 class="mb-0">Missing Timesheet</h2>
             </div>
         </div>
         <div class="mb-4 mt-4">

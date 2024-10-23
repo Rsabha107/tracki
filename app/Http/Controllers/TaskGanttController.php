@@ -32,7 +32,7 @@ class TaskGanttController extends Controller
     public function store(Request $request)
     {
         //
-        Log::info('inside store');
+        // Log::info('inside store');
 
         $task = new Taskx();
 
@@ -72,10 +72,10 @@ class TaskGanttController extends Controller
     public function update(Request $request, string $id)
     {
         //
-        Log::info('inside update: '.$request);
+        // Log::info('inside update: '.$request);
 
         if ($request->type == 'event'){
-            Log::info('this is an event');
+            // Log::info('this is an event');
             $event = Event::find($id);
             $event->name = $request->text;
             $event->start_date = $request->start_date;
@@ -87,7 +87,7 @@ class TaskGanttController extends Controller
         }
 
         if ($request->type == 'task'){
-            Log::info('this is an task');
+            // Log::info('this is an task');
             $task = Task::find($id);
             $task->name = $request->text;
             $task->start_date = $request->start_date;
@@ -117,7 +117,7 @@ class TaskGanttController extends Controller
      */
     public function destroy(string $id)
     {
-        Log::info('inside destroy');
+        // Log::info('inside destroy');
 
         $task = Taskx::find($id);
         $task->delete();

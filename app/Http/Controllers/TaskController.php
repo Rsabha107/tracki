@@ -169,9 +169,9 @@ class TaskController extends Controller
             $showpage_id = $id[1];
             $showpage = $id[0];
 
-            Log::alert('TaskController::allTaskDt');
-            Log::alert('parameter showpage_id id: ' . $showpage_id);
-            Log::alert('parameter showpage: ' . $showpage);
+            // Log::alert('TaskController::allTaskDt');
+            // Log::alert('parameter showpage_id id: ' . $showpage_id);
+            // Log::alert('parameter showpage: ' . $showpage);
 
 
             if ($showpage == 'user') {
@@ -223,11 +223,11 @@ class TaskController extends Controller
         // Log::info(request());
         // Log::info('request get: '.$request->get('project_id'));
         // Log::info('request(): '.request('project_id'));
-        Log::alert('allTaskDt search: ' . $search);
-        Log::alert('allTaskDt project_id: ' . $project_id);
-        Log::alert('allTaskDt status_id: ' . $status_id);
-        Log::alert('allTaskDt person_id: ' . $person_id);
-        Log::alert('allTaskDt department_id: ' . $department_id);
+        // Log::alert('allTaskDt search: ' . $search);
+        // Log::alert('allTaskDt project_id: ' . $project_id);
+        // Log::alert('allTaskDt status_id: ' . $status_id);
+        // Log::alert('allTaskDt person_id: ' . $person_id);
+        // Log::alert('allTaskDt department_id: ' . $department_id);
 
         $where = [];
         // $tasks = Task::when($user_department, function ($query, $user_department) {
@@ -242,8 +242,8 @@ class TaskController extends Controller
         // $user = User::find(4);
         // $tasks = $user->tasks();
 
-        Log::info('workspace: ' . $workspace);
-        Log::info('project_id1: ' . $project_id);
+        // Log::info('workspace: ' . $workspace);
+        // Log::info('project_id1: ' . $project_id);
 
         // $tasks = Task::when($workspace, function ($query, $workspace) {
         //     return $query->where('tasks.workspace_id', $workspace);
@@ -315,9 +315,9 @@ class TaskController extends Controller
 
 
             foreach ($task->employees as $key => $user) {
-                LOG::info($user->full_name);
+                // LOG::info($user->full_name);
                 if ($user->emp_files?->file_path) {
-                    LOG::info('inside file exists');
+                    // LOG::info('inside file exists');
                     $assigned_to_html = $assigned_to_html .
                         '<a href="/tracki/employee/profile/' . $user->id . '" target="_blank" role="button" title="' . $user->full_name . '"><div class="avatar avatar-s me-2 pull-up">
                       <img class="rounded-circle pull-up" src="' . $user->emp_files->file_path . $user->emp_files->file_name . '" alt=""/>
@@ -478,8 +478,8 @@ class TaskController extends Controller
         $color = Color::all();
 
         $call_modal = (request('modal_yn')) ? true : false;
-        Log::info('calling from addTask TaskController the value of modal_yn: ' . $modal_yn);
-        Log::info('calling from addTask TaskController the value of call_modal: ' . $call_modal);
+        // Log::info('calling from addTask TaskController the value of modal_yn: ' . $modal_yn);
+        // Log::info('calling from addTask TaskController the value of call_modal: ' . $call_modal);
 
         if ($call_modal) {
             return response()->json([
@@ -612,7 +612,7 @@ class TaskController extends Controller
         ];
 
         if (config('tracki.send_task_assignment_emails')) {
-            Log::info('assignment to id: ' . $task->assignment_to_id);
+            // Log::info('assignment to id: ' . $task->assignment_to_id);
             $emails = $this->UtilController->getAssignedToEmail($task->assignment_to_id);
             Notification::route('mail', $emails)->notify(new AnnouncementCenter($details));
         }
@@ -637,8 +637,8 @@ class TaskController extends Controller
     {
         // dd('createTask');
 
-        Log::info('taskStore');
-        Log::info($request);
+        // Log::info('taskStore');
+        // Log::info($request);
         $user_id = Auth::user()->id;
         $task = new Task();
         $projects = Event::findOrFail($request->event_id);
@@ -675,7 +675,7 @@ class TaskController extends Controller
         // dd($duration);
         $task->duration = $duration;
 
-        Log::info('task request stored: ' . $task->status->title);
+        // Log::info('task request stored: ' . $task->status->title);
 
 
         if ($task->status->title == 'Completed') {
@@ -697,8 +697,8 @@ class TaskController extends Controller
 
         $task->save();
 
-        Log::info('TaskController::taskStore task count: ' . $projects->tasks->count());
-        Log::info('TaskController::taskStore sum progress: ' . $projects->tasks->sum('progress'));
+        // Log::info('TaskController::taskStore task count: ' . $projects->tasks->count());
+        // Log::info('TaskController::taskStore sum progress: ' . $projects->tasks->sum('progress'));
 
         foreach ($request->assignment_to_id as $key => $data) {
 
@@ -721,7 +721,7 @@ class TaskController extends Controller
         ];
 
         if (config('tracki.send_task_assignment_emails')) {
-            Log::info('assignment to id: ' . $task->assignment_to_id);
+            // Log::info('assignment to id: ' . $task->assignment_to_id);
             $emails = $this->UtilController->getAssignedToEmail($task->assignment_to_id);
             Notification::route('mail', $emails)->notify(new AnnouncementCenter($details));
         }
@@ -753,17 +753,17 @@ class TaskController extends Controller
 
     public function updateTask(Request $request)
     {
-        Log::info('TaskController::updateTask');
-        Log::info('request id: ' . $request->id);
+        // Log::info('TaskController::updateTask');
+        // Log::info('request id: ' . $request->id);
 
         $user_id = Auth::user()->id;
 
         $task = Task::findOrFail($request->id);
         // $util = new UtilController;
 
-        Log::info($request);
+        // Log::info($request);
         $task->name = $request->name;
-        Log::info('after name');
+        // Log::info('after name');
         $task->start_date = Carbon::createFromFormat('d/m/Y', $request->start_date);
         // $task->start_time = $request->start_time;
         $task->due_date = Carbon::createFromFormat('d/m/Y', $request->due_date);
@@ -790,7 +790,7 @@ class TaskController extends Controller
         // dd($duration);
         $completed_status = false;
 
-        Log::debug('status_id: ' . $request->status_id . ' config completed: ' . config('tracki.task_status.completed') . ' completed_status: ' . $completed_status);
+        // Log::debug('status_id: ' . $request->status_id . ' config completed: ' . config('tracki.task_status.completed') . ' completed_status: ' . $completed_status);
 
         // dd($duration);
         $task->duration = $duration;
@@ -803,7 +803,7 @@ class TaskController extends Controller
 
         if (config('tracki.show_task_progress')) {
             if (!$completed_status) {
-                Log::info('insided is completed status is true');
+                // Log::info('insided is completed status is true');
                 if ($request->progress >= 100) {
                     $task->status_id = config('tracki.task_status.completed');
                 } elseif ($request->progress == 0) {
@@ -870,12 +870,12 @@ class TaskController extends Controller
     public function taskDetails(Request $request, $id)
     {
         // $hasit = auth()->user()->hasRole('department restricted');
-        Log::alert('TaskController::taskDetails');
+        // Log::alert('TaskController::taskDetails');
         $workspace = session()->get('workspace_id');
 
-        Log::alert('TaskController::workspace' . $workspace);
+        // Log::alert('TaskController::workspace' . $workspace);
 
-        Log::info($request->url());
+        // Log::info($request->url());
         $user_department = auth()->user()->department_assignment_id;
 
         $util_controller = new UtilController;
@@ -1231,7 +1231,7 @@ class TaskController extends Controller
         $task = Task::findOrFail($request->id);
         $status_title = Status::findOrFail($request->status_id);
 
-        Log::info($status_title->title);
+        // Log::info($status_title->title);
         if (($status_title->title == 'Completed') || ($status_title->title == 'Suspended')) {
             $task->update([
                 'status_id' => $request->status_id,
@@ -1436,7 +1436,7 @@ class TaskController extends Controller
     public function taskNoteStore(Request $request)
     {
 
-        Log::info($request->all());
+        // Log::info($request->all());
         $validator = Validator::make($request->all(), [
             'note_text' => 'required|string',
         ]);
@@ -1475,9 +1475,9 @@ class TaskController extends Controller
                 'duedate' => 'Due by: ' . \Carbon\Carbon::parse($task->due_date)->format('d-M-Y'),
             ];
 
-            Log::info($details);
+            // Log::info($details);
             if (config('tracki.send_task_assignment_emails')) {
-                Log::info('assignment to id: ' . $task->assignment_to_id);
+                // Log::info('assignment to id: ' . $task->assignment_to_id);
                 $emails = $this->UtilController->getAssignedToEmail($task->assignment_to_id);
                 Notification::route('mail', $emails)->notify(new AnnouncementCenter($details));
             }

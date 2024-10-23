@@ -38,17 +38,17 @@ class PayrollBankController extends Controller
     {
         //
         // dd($id);
-        $employee_timesheets = EmployeeTimeSheet::all();
+        // $employee_timesheets = EmployeeTimeSheet::all();
         $timesheet_periods = EmployeeTimeSheet::select('timesheet_period')->distinct()->get();
-        $employees = Employee::join('employee_timesheets', 'employees_all.id', 'employee_timesheets.employee_id')->get();
+        // $employees = Employee::join('employee_timesheets', 'employees_all.id', 'employee_timesheets.employee_id')->get();
 
-        $directorate = EmployeeDirectorate::all();
-        $entities = EmployeeEntity::all();
-        $departments = Department::all();
-        $functional = FunctionalArea::all();
+        // $directorate = EmployeeDirectorate::all();
+        // $entities = EmployeeEntity::all();
+        // $departments = Department::all();
+        // $functional = FunctionalArea::all();
 
-        $employee_leave_statuses = EmployeeLeaveStatus::all();
-        $months_name = MonthsNames::orderBy('month_order', 'ASC')->get();
+        // $employee_leave_statuses = EmployeeLeaveStatus::all();
+        // $months_name = MonthsNames::orderBy('month_order', 'ASC')->get();
         // $emp = Employee::findOrFail(auth()->user()->employee_id);
 
         // dd(FacadesRoute::currentRouteName());
@@ -56,15 +56,15 @@ class PayrollBankController extends Controller
         return view(
             'tracki.payroll.bank.list',
             compact(
-                'employees',
-                'employee_leave_statuses',
-                'months_name',
-                'employee_timesheets',
+                // 'employees',
+                // 'employee_leave_statuses',
+                // 'months_name',
+                // 'employee_timesheets',
                 'timesheet_periods',
-                'directorate',
-                'entities',
-                'departments',
-                'functional'
+                // 'directorate',
+                // 'entities',
+                // 'departments',
+                // 'functional'
             )
         );
     }

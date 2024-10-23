@@ -80,7 +80,7 @@ class AttendanceController extends Controller
             //     Log::info('Key: '.$key.' Item: '.$item);
             // }
             //$this->markAttendance($request);
-            LOG::info($attendData->isEmpty());
+            // LOG::info($attendData->isEmpty());
             if (!$attendData->isEmpty()){
                 $this->markAttendance($request);
             }
@@ -186,15 +186,15 @@ class AttendanceController extends Controller
     // Assign attendance to an event
     public function assignAttendanceEvents(Request $request)
     {
-        Log::info(($request));
+        // Log::info(($request));
         // dd($request->ids);
 
 
 
         foreach ($request->ids as $key => $item) {
             $eventAttendanceRelationship = new EventAttendance;
-            Log::info('Key: ' . $key . ' Item: ' . $item);
-            Log::info('event id: ' . $request->event_id);
+            // Log::info('Key: ' . $key . ' Item: ' . $item);
+            // Log::info('event id: ' . $request->event_id);
             $eventAttendanceRelationship->event_id = $request->event_id;
             $eventAttendanceRelationship->guest_id = $item;
 

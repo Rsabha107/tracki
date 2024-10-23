@@ -27,7 +27,7 @@ class ChartsController extends Controller
         ->groupBy('department.name')
         ->get();
 
-        Log::info($taskData);
+        // Log::info($taskData);
 
       $Data = array
                   (

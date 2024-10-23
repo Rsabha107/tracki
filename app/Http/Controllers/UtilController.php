@@ -20,7 +20,7 @@ class UtilController extends Controller
     //
     public static function getEventBudgetDetails($id)
     {
-        Log::info('UtilController::getEventBudgetDetails with id: '.$id);
+        // Log::info('UtilController::getEventBudgetDetails with id: '.$id);
         // dd($id);
         $eventBudget = Event::find($id)?->budget_allocation;
         $totalTaskBudgetUsed = DB::table('tasks')
@@ -74,7 +74,7 @@ class UtilController extends Controller
 
         if ($completionPercent == '1') {
             $status = true;
-            Log::info('task completion: ' . $sumTaskProgress / $taskCount);
+            // Log::info('task completion: ' . $sumTaskProgress / $taskCount);
         }
 
         $data = [
@@ -91,7 +91,7 @@ class UtilController extends Controller
         $taskNotes = TaskNote::where('task_notes.task_id',$id)->exists();
 
         if ($taskNotes) {
-        Log::alert('taskNotesExists Task id: '.$id.' Yes');
+        // Log::alert('taskNotesExists Task id: '.$id.' Yes');
             $ret = true;
         }
 
@@ -115,7 +115,7 @@ class UtilController extends Controller
         $is_project_completed = $this->isTasksCompleted($id);
         // dd($is_project_completed);
         $status = Status::all();
-        Log::info($is_project_completed);
+        // Log::info($is_project_completed);
         if ($is_project_completed['status']) {
             // Log::info('project: ' . $id . ' is ' . config('tracki.project_status.completed'));
             Event::where('id', $id)

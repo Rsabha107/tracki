@@ -57,7 +57,7 @@ class DesignationController extends Controller
 
         $validator = Validator::make($request->all(), $rules);
         if ($validator->fails()) {
-            Log::info($validator->errors());
+            // Log::info($validator->errors());
             $error = true;
             $message = 'Job not create.';
         } else {
@@ -125,7 +125,7 @@ class DesignationController extends Controller
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
-            Log::info($validator->errors());
+            // Log::info($validator->errors());
             $error = true;
             $message = 'Designation could not be created';
         } else {

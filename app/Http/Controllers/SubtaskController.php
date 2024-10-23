@@ -144,8 +144,8 @@ class SubtaskController extends Controller
 
         ]);
 
-        Log::info('insiode SubtaskController::updateStatus');
-        Log::info($request->all());
+        // Log::info('insiode SubtaskController::updateStatus');
+        // Log::info($request->all());
 
         $id = $request->id;
         $status = $request->status;

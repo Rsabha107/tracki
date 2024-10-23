@@ -32,7 +32,7 @@ class CountryController extends Controller
 
         $validator = Validator::make($request->all(), $rules);
         if ($validator->fails()) {
-            Log::info($validator->errors());
+            // Log::info($validator->errors());
             $error = true;
             $message = 'Country not create.';
         } else {

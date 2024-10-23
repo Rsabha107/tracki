@@ -65,7 +65,7 @@ class EmployeeBankController extends Controller
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
-            Log::info($validator->errors());
+            // Log::info($validator->errors());
             $error = true;
             $message = implode($validator->errors()->all('<div>:message</div>'));
         } else {
@@ -212,7 +212,7 @@ class EmployeeBankController extends Controller
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
-            Log::info($validator->errors());
+            // Log::info($validator->errors());
             $error = true;
             $message = implode($validator->errors()->all('<div>:message</div>'));
         } else {

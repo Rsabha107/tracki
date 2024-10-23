@@ -297,8 +297,8 @@ class ProjectController extends Controller
         // $record_type = Session::get('record_type');
 
 
-        Log::info('ProjectController:: showCard');
-        Log::info(request());
+        // Log::info('ProjectController:: showCard');
+        // Log::info(request());
         $ws_dropdown = null;
         $where = [];
         if (request()->ws) {
@@ -472,9 +472,9 @@ class ProjectController extends Controller
         // $order = (request('order')) ? request('order') : "DESC";
         $status_id = (request('status')) ? request('status') : "";
 
-        Log::alert(request()->all());
+        // Log::alert(request()->all());
         // Log::alert('getProjectData project_id: ' . $project_id);
-        Log::alert('getProjectData status_id: ' . $status_id);
+        // Log::alert('getProjectData status_id: ' . $status_id);
         // Log::alert('getProjectData person_id: ' . $person_id);
         // Log::alert('getProjectData department_id: ' . $department_id);
 
@@ -742,7 +742,7 @@ class ProjectController extends Controller
 
         $workspace = session()->get('workspace_id');
 
-        Log::info('workspace: ' . $workspace);
+        // Log::info('workspace: ' . $workspace);
 
         $event->name = $request->name;
         $event->category_id = $request->category_id;
@@ -843,7 +843,7 @@ class ProjectController extends Controller
         $duration =  $start_date_d->diffInDays($end_date_d, false);
 
 
-        Log::info('start_date_d: ' . $start_date_d . ' end_date_d: ' . $end_date_d . ' duration: ' . $duration);
+        // Log::info('start_date_d: ' . $start_date_d . ' end_date_d: ' . $end_date_d . ' duration: ' . $duration);
 
         // dd($duration);
         $event->duration = $duration;
@@ -952,7 +952,7 @@ class ProjectController extends Controller
         // dd('mainEvent');
         $fileDetails = FileUpload::find($id);
 
-        Log::info('file to delete: ' . 'upload/event_files/' . $fileDetails->file_name);
+        // Log::info('file to delete: ' . 'upload/event_files/' . $fileDetails->file_name);
 
         // $url = \File::allFiles(public_path('upload/event_files/'.$fileDetails->file_name));
         // dd($url);

@@ -52,7 +52,7 @@ class PriorityController extends Controller
                 // dd($validator);
 
                 if ($validator->fails()) {
-                    Log::info($validator->errors());
+                    // Log::info($validator->errors());
                     $error = true;
                     $message = 'Priority couldn\'t created' . $op->id;
                 } else {

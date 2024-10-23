@@ -48,6 +48,11 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         array (
             'voku\\' => 5,
         ),
+        'a' => 
+        array (
+            'adevesa\\SimpleOTP\\Database\\Factories\\' => 37,
+            'adevesa\\SimpleOTP\\' => 18,
+        ),
         'Z' => 
         array (
             'ZipStream\\' => 10,
@@ -99,6 +104,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
             'Symfony\\Component\\Console\\' => 26,
             'Svg\\' => 4,
             'Spatie\\Permission\\' => 18,
+            'Spatie\\LaravelPackageTools\\' => 27,
             'Spatie\\LaravelIgnition\\' => 23,
             'Spatie\\Ignition\\' => 16,
             'Spatie\\FlareClient\\' => 19,
@@ -220,6 +226,14 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'voku\\' => 
         array (
             0 => __DIR__ . '/..' . '/voku/portable-ascii/src/voku',
+        ),
+        'adevesa\\SimpleOTP\\Database\\Factories\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/adevesa/laravel-simple-otp/database/factories',
+        ),
+        'adevesa\\SimpleOTP\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/adevesa/laravel-simple-otp/src',
         ),
         'ZipStream\\' => 
         array (
@@ -368,6 +382,10 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'Spatie\\Permission\\' => 
         array (
             0 => __DIR__ . '/..' . '/spatie/laravel-permission/src',
+        ),
+        'Spatie\\LaravelPackageTools\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/laravel-package-tools/src',
         ),
         'Spatie\\LaravelIgnition\\' => 
         array (
@@ -713,6 +731,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Http\\Controllers\\EmployeeBankController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmployeeBankController.php',
         'App\\Http\\Controllers\\EmployeeContractTypeController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmployeeContractTypeController.php',
         'App\\Http\\Controllers\\EmployeeController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmployeeController.php',
+        'App\\Http\\Controllers\\EmployeeDashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmployeeDashboardController.php',
         'App\\Http\\Controllers\\EmployeeEmergencyContactController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmployeeEmergencyContactController.php',
         'App\\Http\\Controllers\\EmployeeLeaveController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmployeeLeaveController.php',
         'App\\Http\\Controllers\\EmployeeRelationshipController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmployeeRelationshipController.php',
@@ -720,6 +739,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Http\\Controllers\\EmployeeSponsorshipController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmployeeSponsorshipController.php',
         'App\\Http\\Controllers\\EmployeeTimeSheetController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmployeeTimeSheetController.php',
         'App\\Http\\Controllers\\EmployeeTimeSheetEntryController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmployeeTimeSheetEntryController.php',
+        'App\\Http\\Controllers\\EmployeeTimeSheetInvoice' => __DIR__ . '/../..' . '/app/Http/Controllers/EmployeeTimeSheetInvoice.php',
         'App\\Http\\Controllers\\EmployeeTypeController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmployeeTypeController.php',
         'App\\Http\\Controllers\\EntityController' => __DIR__ . '/../..' . '/app/Http/Controllers/EntityController.php',
         'App\\Http\\Controllers\\EventController' => __DIR__ . '/../..' . '/app/Http/Controllers/EventController.php',
@@ -730,8 +750,13 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Http\\Controllers\\KanbanController' => __DIR__ . '/../..' . '/app/Http/Controllers/KanbanController.php',
         'App\\Http\\Controllers\\LeaveTypeController' => __DIR__ . '/../..' . '/app/Http/Controllers/LeaveTypeController.php',
         'App\\Http\\Controllers\\LocationController' => __DIR__ . '/../..' . '/app/Http/Controllers/LocationController.php',
+        'App\\Http\\Controllers\\ManagerController' => __DIR__ . '/../..' . '/app/Http/Controllers/ManagerController.php',
+        'App\\Http\\Controllers\\ManagerLeaveController' => __DIR__ . '/../..' . '/app/Http/Controllers/ManagerLeaveController.php',
+        'App\\Http\\Controllers\\ManagerTimesheetController' => __DIR__ . '/../..' . '/app/Http/Controllers/ManagerTimesheetController.php',
         'App\\Http\\Controllers\\MaritalStatusController' => __DIR__ . '/../..' . '/app/Http/Controllers/MaritalStatusController.php',
         'App\\Http\\Controllers\\NationalityController' => __DIR__ . '/../..' . '/app/Http/Controllers/NationalityController.php',
+        'App\\Http\\Controllers\\PayrollBankController' => __DIR__ . '/../..' . '/app/Http/Controllers/PayrollBankController.php',
+        'App\\Http\\Controllers\\PayrollTimesheetController' => __DIR__ . '/../..' . '/app/Http/Controllers/PayrollTimesheetController.php',
         'App\\Http\\Controllers\\PriorityController' => __DIR__ . '/../..' . '/app/Http/Controllers/PriorityController.php',
         'App\\Http\\Controllers\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileController.php',
         'App\\Http\\Controllers\\ProjectController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProjectController.php',
@@ -786,6 +811,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Models\\ElementClassification' => __DIR__ . '/../..' . '/app/Models/ElementClassification.php',
         'App\\Models\\Employee' => __DIR__ . '/../..' . '/app/Models/Employee.php',
         'App\\Models\\EmployeeAddress' => __DIR__ . '/../..' . '/app/Models/EmployeeAddress.php',
+        'App\\Models\\EmployeeApproval' => __DIR__ . '/../..' . '/app/Models/EmployeeApproval.php',
         'App\\Models\\EmployeeAttachment' => __DIR__ . '/../..' . '/app/Models/EmployeeAttachment.php',
         'App\\Models\\EmployeeBank' => __DIR__ . '/../..' . '/app/Models/EmployeeBank.php',
         'App\\Models\\EmployeeContractType' => __DIR__ . '/../..' . '/app/Models/EmployeeContractType.php',
@@ -803,6 +829,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Models\\EmployeeSponsorship' => __DIR__ . '/../..' . '/app/Models/EmployeeSponsorship.php',
         'App\\Models\\EmployeeTimeSheet' => __DIR__ . '/../..' . '/app/Models/EmployeeTimeSheet.php',
         'App\\Models\\EmployeeTimeSheetEntry' => __DIR__ . '/../..' . '/app/Models/EmployeeTimeSheetEntry.php',
+        'App\\Models\\EmployeeTimesheetEntryAction' => __DIR__ . '/../..' . '/app/Models/EmployeeTimesheetEntryAction.php',
         'App\\Models\\EmployeeType' => __DIR__ . '/../..' . '/app/Models/EmployeeType.php',
         'App\\Models\\Event' => __DIR__ . '/../..' . '/app/Models/Event.php',
         'App\\Models\\EventAttendance' => __DIR__ . '/../..' . '/app/Models/EventAttendance.php',
@@ -816,6 +843,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Models\\GlobalStatus' => __DIR__ . '/../..' . '/app/Models/GlobalStatus.php',
         'App\\Models\\HROrganization' => __DIR__ . '/../..' . '/app/Models/HROrganization.php',
         'App\\Models\\InputType' => __DIR__ . '/../..' . '/app/Models/InputType.php',
+        'App\\Models\\InvoiceNote' => __DIR__ . '/../..' . '/app/Models/InvoiceNote.php',
         'App\\Models\\ItemCategory' => __DIR__ . '/../..' . '/app/Models/ItemCategory.php',
         'App\\Models\\ItemSubcategory' => __DIR__ . '/../..' . '/app/Models/ItemSubcategory.php',
         'App\\Models\\Language' => __DIR__ . '/../..' . '/app/Models/Language.php',
@@ -832,6 +860,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Models\\Operation' => __DIR__ . '/../..' . '/app/Models/Operation.php',
         'App\\Models\\Order' => __DIR__ . '/../..' . '/app/Models/Order.php',
         'App\\Models\\OrganizationBudget' => __DIR__ . '/../..' . '/app/Models/OrganizationBudget.php',
+        'App\\Models\\PasswordResetToken' => __DIR__ . '/../..' . '/app/Models/PasswordResetToken.php',
         'App\\Models\\PermissionGroup' => __DIR__ . '/../..' . '/app/Models/PermissionGroup.php',
         'App\\Models\\Person' => __DIR__ . '/../..' . '/app/Models/Person.php',
         'App\\Models\\PersonNumGen' => __DIR__ . '/../..' . '/app/Models/PersonNumGen.php',
@@ -7500,6 +7529,10 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'Spatie\\LaravelIgnition\\Support\\StringComparator' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/Support/StringComparator.php',
         'Spatie\\LaravelIgnition\\Views\\BladeSourceMapCompiler' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/Views/BladeSourceMapCompiler.php',
         'Spatie\\LaravelIgnition\\Views\\ViewExceptionMapper' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/Views/ViewExceptionMapper.php',
+        'Spatie\\LaravelPackageTools\\Commands\\InstallCommand' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Commands/InstallCommand.php',
+        'Spatie\\LaravelPackageTools\\Exceptions\\InvalidPackage' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Exceptions/InvalidPackage.php',
+        'Spatie\\LaravelPackageTools\\Package' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/Package.php',
+        'Spatie\\LaravelPackageTools\\PackageServiceProvider' => __DIR__ . '/..' . '/spatie/laravel-package-tools/src/PackageServiceProvider.php',
         'Spatie\\Permission\\Commands\\CacheReset' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Commands/CacheReset.php',
         'Spatie\\Permission\\Commands\\CreatePermission' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Commands/CreatePermission.php',
         'Spatie\\Permission\\Commands\\CreateRole' => __DIR__ . '/..' . '/spatie/laravel-permission/src/Commands/CreateRole.php',
@@ -8611,6 +8644,15 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'ZipStream\\Zip64\\ExtendedInformationExtraField' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/Zip64/ExtendedInformationExtraField.php',
         'ZipStream\\ZipStream' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/ZipStream.php',
         'ZipStream\\Zs\\ExtendedInformationExtraField' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/Zs/ExtendedInformationExtraField.php',
+        'adevesa\\SimpleOTP\\Database\\Factories\\SimpleOTPFactory' => __DIR__ . '/..' . '/adevesa/laravel-simple-otp/database/factories/SimpleOTPFactory.php',
+        'adevesa\\SimpleOTP\\Exceptions\\ExpiratedOtpException' => __DIR__ . '/..' . '/adevesa/laravel-simple-otp/src/Exceptions/ExpiratedOtpException.php',
+        'adevesa\\SimpleOTP\\Exceptions\\InvalidCodeOtpException' => __DIR__ . '/..' . '/adevesa/laravel-simple-otp/src/Exceptions/InvalidCodeOtpException.php',
+        'adevesa\\SimpleOTP\\Exceptions\\MaxAttemptsValidationOtpException' => __DIR__ . '/..' . '/adevesa/laravel-simple-otp/src/Exceptions/MaxAttemptsValidationOtpException.php',
+        'adevesa\\SimpleOTP\\Exceptions\\NotFoundOtpException' => __DIR__ . '/..' . '/adevesa/laravel-simple-otp/src/Exceptions/NotFoundOtpException.php',
+        'adevesa\\SimpleOTP\\Facades\\SimpleOTP' => __DIR__ . '/..' . '/adevesa/laravel-simple-otp/src/Facades/SimpleOTP.php',
+        'adevesa\\SimpleOTP\\Models\\SimpleOTP' => __DIR__ . '/..' . '/adevesa/laravel-simple-otp/src/Models/SimpleOTP.php',
+        'adevesa\\SimpleOTP\\SimpleOTP' => __DIR__ . '/..' . '/adevesa/laravel-simple-otp/src/SimpleOTP.php',
+        'adevesa\\SimpleOTP\\SimpleOTPServiceProvider' => __DIR__ . '/..' . '/adevesa/laravel-simple-otp/src/SimpleOTPServiceProvider.php',
         'voku\\helper\\ASCII' => __DIR__ . '/..' . '/voku/portable-ascii/src/voku/helper/ASCII.php',
     );
 

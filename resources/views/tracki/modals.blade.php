@@ -388,7 +388,7 @@
                     </div> -->
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"><?= get_label('close', 'Close') ?></label></button>
+                <button type="button" class="btn btn-outline-secondary me-4" data-bs-dismiss="offcanvas"><?= get_label('close', 'Close') ?></label></button>
                 <button type="submit" class="btn btn-primary" id="submit_btn"><?= get_label('save', 'Save') ?></label></button>
             </div>
         </form>
@@ -915,6 +915,11 @@
                         <div class="col-md-12">
                             <!-- <div class="mb-3 row"> -->
                             @if(Request::is('tracki/employee/profile*')||auth()->user()->hasRole('User'))
+
+                            @php
+                            $employee_id = null;
+                            @endphp
+
                             @foreach ($employees as $key => $item)
                             @php
                             $employee_id = $item->id;
@@ -1300,6 +1305,10 @@
                         <!-- <div class="mb-3 row"> -->
 
                         @if(Request::is('tracki/employee/profile*')||auth()->user()->hasRole('User'))
+
+                        @php
+                        $employee_id = null;
+                        @endphp
 
                         @foreach ($employees as $key => $item)
                         @php

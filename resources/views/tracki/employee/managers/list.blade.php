@@ -86,7 +86,7 @@
         </div> -->
         */
         ?>
-        <x-managers-card :emps='$emps' />
+        <x-managers-card />
     </div>
 
     <script src="{{asset('assets/js/pages/employees.js')}}"></script>

@@ -29,7 +29,7 @@ class TaskApproachingDuedateAuto extends Command
     public function handle()
     {
         //\
-        Log::info("testing this scheduler");
+        // Log::info("testing this scheduler");
 
         // $taskData = Task::join('events', 'events.id', '=', 'tasks.event_id')
         // ->join('department', 'department.id', '=', 'tasks.department_assignment_id')

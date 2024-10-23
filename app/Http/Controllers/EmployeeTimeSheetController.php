@@ -87,7 +87,7 @@ class EmployeeTimeSheetController extends Controller
         // search dropdown
         $period = (request()->period) ? request()->period : "";
         $status = (request()->status) ? request()->status : "";
-        Log::alert(request()->all());
+        // Log::alert(request()->all());
 
 
         if ($id) {
@@ -292,8 +292,8 @@ class EmployeeTimeSheetController extends Controller
         $error = false;
         $message = 'timesheet created successfully';
 
-        Log::info('EmployeeTimeSheetController:start_date ' . $start_date);
-        Log::info('EmployeeTimeSheetController:requested_date ' . $requested_date);
+        // Log::info('EmployeeTimeSheetController:start_date ' . $start_date);
+        // Log::info('EmployeeTimeSheetController:requested_date ' . $requested_date);
 
         if ($requested_date->lessThan($start_date) || $requested_date->greaterThan($end_date)) {
             $error = true;

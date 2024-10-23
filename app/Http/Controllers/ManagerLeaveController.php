@@ -31,13 +31,13 @@ class ManagerLeaveController extends Controller
         //
         $employee_id = auth()->user()->employee_id;
 
-        $employees = Employee::findOrFail($employee_id);
-        $employee_leaves = $employees->leaves();
+        // $employees = Employee::findOrFail($employee_id);
+        // $employee_leaves = $employees->leaves();
 
         $employee_leave_types = EmployeeLeaveType::all();
         $employee_leave_statuses = EmployeeLeaveStatus::all();
 
-        return view('tracki.employee.managers.leave.list', compact('employee_leaves', 'employee_leave_types', 'employee_leave_statuses'));
+        return view('tracki.employee.managers.leave.list', compact('employee_leave_types', 'employee_leave_statuses'));
     }
 
 
@@ -316,7 +316,7 @@ class ManagerLeaveController extends Controller
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
-            Log::info($validator->errors());
+            // Log::info($validator->errors());
             $error = true;
             $message = 'Leave not create.' . $op->id;
         } else {
@@ -441,7 +441,7 @@ class ManagerLeaveController extends Controller
             $performer_id = 68;
         }
 
-        Log::info('performer_id = ' . $performer_id);
+        // Log::info('performer_id = ' . $performer_id);
 
         $employee_leaves = EmployeeLeave::findOrFail($request->id);
 

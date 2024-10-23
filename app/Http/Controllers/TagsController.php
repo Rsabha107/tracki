@@ -58,7 +58,7 @@ class TagsController extends Controller
         // dd($validator);
 
         if ($validator->fails()) {
-            Log::info($validator->errors());
+            // Log::info($validator->errors());
             $error = true;
             $message = 'Tag couldn\'t created id' . $op->id;
         } else {

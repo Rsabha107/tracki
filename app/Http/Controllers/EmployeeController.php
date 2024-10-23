@@ -361,11 +361,11 @@ class EmployeeController extends Controller
         // Log::info(request());
         // Log::info('request get: '.$request->get('project_id'));
         // Log::info('request(): '.request('project_id'));
-        Log::alert('allTaskDt search: ' . $search);
-        Log::alert('allTaskDt project_id: ' . $project_id);
-        Log::alert('allTaskDt status_id: ' . $status_id);
-        Log::alert('allTaskDt person_id: ' . $person_id);
-        Log::alert('allTaskDt department_id: ' . $department_id);
+        // Log::alert('allTaskDt search: ' . $search);
+        // Log::alert('allTaskDt project_id: ' . $project_id);
+        // Log::alert('allTaskDt status_id: ' . $status_id);
+        // Log::alert('allTaskDt person_id: ' . $person_id);
+        // Log::alert('allTaskDt department_id: ' . $department_id);
 
         $where = [];
         // $tasks = Task::when($user_department, function ($query, $user_department) {
@@ -380,8 +380,8 @@ class EmployeeController extends Controller
         // $user = User::find(4);
         // $tasks = $user->tasks();
 
-        Log::info('workspace: ' . $workspace);
-        Log::info('project_id1: ' . $project_id);
+        // Log::info('workspace: ' . $workspace);
+        // Log::info('project_id1: ' . $project_id);
 
         // $tasks = Task::when($workspace, function ($query, $workspace) {
         //     return $query->where('tasks.workspace_id', $workspace);
@@ -569,7 +569,7 @@ class EmployeeController extends Controller
 
         // dd($validator);
 
-        Log::info($request->all());
+        // Log::info($request->all());
 
         if ($validator->fails()) {
             // Log::info($validator->errors());
@@ -936,15 +936,15 @@ class EmployeeController extends Controller
     public function update(Request $request)
     {
         //
-        Log::alert('EmployeeController::update');
-        Log::alert(request()->all());
+        // Log::alert('EmployeeController::update');
+        // Log::alert(request()->all());
         $id = Auth::user()->id;
         $user = User::where('employee_id', $request->id)->first();
         $op = Employee::findOrFail($request->id);
         $data = EmployeeFile::where('employee_id', $request->id)->first();
 
         if (!$data) {
-            Log::info('inside data not defined.  new employeefile');
+            // Log::info('inside data not defined.  new employeefile');
             $data = new EmployeeFile;
         }
 
@@ -964,7 +964,7 @@ class EmployeeController extends Controller
 
         // dd($validator);
 
-        Log::info($request->all());
+        // Log::info($request->all());
 
         if ($validator->fails()) {
             // Log::info($validator->errors());

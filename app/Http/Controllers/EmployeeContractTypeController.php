@@ -33,7 +33,7 @@ class EmployeeContractTypeController extends Controller
 
         $validator = Validator::make($request->all(), $rules);
         if ($validator->fails()) {
-            Log::info($validator->errors());
+            // Log::info($validator->errors());
             $error = true;
             $message = 'contract type not create.';
         } else {

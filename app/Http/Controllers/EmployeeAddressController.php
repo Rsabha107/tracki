@@ -133,10 +133,10 @@ class EmployeeAddressController extends Controller
 
         // dd($validator);
 
-        Log::info($request->all());
+        // Log::info($request->all());
 
         if ($validator->fails()) {
-            Log::info($validator->errors());
+            // Log::info($validator->errors());
             $error = true;
             $message = implode($validator->errors()->all('<div>:message</div>'));
         } else {
@@ -267,7 +267,7 @@ class EmployeeAddressController extends Controller
         $validator = Validator::make($request->all(), $rules, $customMessages);
 
         if ($validator->fails()) {
-            Log::info($validator->errors());
+            // Log::info($validator->errors());
             $error = true;
             $message = implode($validator->errors()->all('<div>:message</div>'));
         } else {

@@ -29,6 +29,8 @@ return [
     'project_strict_save' => false,
     'show_project_status_field' => false,
 
+    'use_otp' => true,
+
     // 'component_table_style' => 'table-bordered',
     'component_table_style' => 'table-hover  fs-9 mb-0 border-top border-translucent',
 ];

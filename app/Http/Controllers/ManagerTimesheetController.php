@@ -33,15 +33,15 @@ class ManagerTimesheetController extends Controller
     {
         //
         // dd($id);
-        $employee_timesheets = EmployeeTimeSheet::all();
+        // $employee_timesheets = EmployeeTimeSheet::all();
         $timesheet_periods = EmployeeTimeSheet::select('timesheet_period')->distinct()->get();
-        $employees = Employee::when(auth()->user()->employee_id, function ($query, $id) {
-            return $query->where('employees_all.id', $id);
-        })->get();
+        // $employees = Employee::when(auth()->user()->employee_id, function ($query, $id) {
+        //     return $query->where('employees_all.id', $id);
+        // })->get();
         $employee_leave_statuses = EmployeeLeaveStatus::all();
         $months_name = MonthsNames::orderBy('month_order', 'ASC')->get();
 
-        return view('tracki.employee.managers.timesheet.list', compact('employees', 'employee_leave_statuses', 'months_name', 'employee_timesheets','timesheet_periods'));
+        return view('tracki.employee.managers.timesheet.list', compact('employee_leave_statuses', 'months_name','timesheet_periods'));
     }
 
 
@@ -85,7 +85,7 @@ class ManagerTimesheetController extends Controller
         // search dropdown
         $period = (request()->period) ? request()->period : "";
         $status = (request()->status) ? request()->status : "";
-        Log::alert(request()->all());
+        // Log::alert(request()->all());
 
 
         $op = EmployeeTimeSheet::whereHas('employees', function (Builder $query) {
@@ -254,7 +254,7 @@ class ManagerTimesheetController extends Controller
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
-            Log::info($validator->errors());
+            // Log::info($validator->errors());
             $error = true;
             $message = 'Leave not create.' . $op->id;
         } else {

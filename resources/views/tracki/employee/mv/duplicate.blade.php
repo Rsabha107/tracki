@@ -422,7 +422,7 @@
 
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"><?= get_label('close', 'Close') ?></label></button>
+    <button type="button" class="btn btn-outline-secondary me-4" data-bs-dismiss="offcanvas"><?= get_label('close', 'Close') ?></label></button>
     <button type="submit" class="btn btn-primary" id="submit_btn"><?= get_label('save', 'Save') ?></label></button>
 </div>
 <!-- </form> -->

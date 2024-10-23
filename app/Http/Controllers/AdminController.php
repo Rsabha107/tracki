@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use adevesa\SimpleOTP\Models\SimpleOTP;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Mail\SendForgotPasswordMail;
+use App\Mail\SendOTP;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
@@ -40,6 +42,7 @@ class AdminController extends Controller
     public function login(LoginRequest $request)
     {
 
+
         // $rules = $request->validate([
         //     'email' => ['required', 'email'],
         //     'password' => ['required'],
@@ -52,22 +55,49 @@ class AdminController extends Controller
         //         ->withInput()
         //         ->withErrors($validator);
         // }
+        session()->forget('OTPSESSIONKEY');
 
-        Log::info('AdminController::login');
-        Log::info($request);
+        // Log::info('AdminController::login');
+        // Log::info($request);
+        // Log::info('otp flag: ' . config('tracki.use_otp'));
+
+        // dd(auth()->check());
 
         $request->authenticate();
         // if (Auth::attempt($fields, $request->remember)) {
         // RateLimiter::hit($this->throttleKey());
 
+        $user = User::find(Auth::user()->id);
+
+        // auth()->logout();
+        // $credentials = [$user->getAuthIdentifierName() => $user->getAuthIdentifier(), 'password' => $user->getAuthPassword];
+        // $ok = Auth::attempt($credentials, false);
+
+        // $usingid = Auth::loginUsingId($user->id);
+
+        // dd($user->getAuthIdentifierName(), $user->getAuthIdentifier(), $user->getAuthPassword(), $user->email,$ok, $usingid, auth()->check);
+        // dd(auth()->check());
+
         $request->session()->regenerate();
 
-        $user = User::find(Auth::user()->id);
-        // dd($user, $user->hasRole('HRMSADMIN'));
         if (!in_array($request->ip(), config('tracki.white_list_ip_address')) && $user->hasRole('HRMSADMIN')) {
             throw ValidationException::withMessages([
                 'email' => 'You are not allowed to login as admin from the current ip address',
             ]);
+        }
+
+        if (config('tracki.use_otp')) {
+            // $this->showOtp();
+            $simpleOTP = new SimpleOTP();
+            // $code = $simpleOTP->create('rsabha@gmail.com');
+            $code = \adevesa\SimpleOTP\Facades\SimpleOTP::create(auth()->user()->email);
+            // now sedning the code by email
+            $content = [
+                'otp_token'     => $code->code,
+                'subject'   => 'Sparkle HRMS: Your OTP has arrived',
+            ];
+            Mail::to(auth()->user()->email)->queue(new SendOTP($content));
+            return view('tracki/auth/otp');
         }
 
         //  dd('login');
@@ -80,6 +110,26 @@ class AdminController extends Controller
         ])->onlyInput('email');
     }
 
+    public function verifyOtpAndLogin(Request $request)
+    {
+        $isValid = \adevesa\SimpleOTP\Facades\SimpleOTP::verify(auth()->user()->email, $request->otp);
+        if ($isValid) {
+            session()->put('OTPSESSIONKEY', true);
+        }
+
+        // Log::info('AdminController::verifyOtpErrors => isValid: ' . $isValid);
+        if (auth()->check() && session()->get('OTPSESSIONKEY')) {
+            // Log::info('AdminController::verifyOtpErrors => inside if authcheck and otpsessionkeytrue');
+            return redirect()->intended('/');
+        } else {
+            // Log::info('AdminController::verifyOtpErrors => inside else back witherrors');
+
+            return redirect('tracki/auth/otp')->withErrors([
+                'The provided OTP do not match our records.',
+            ]);
+        }
+    }
+
     public function logout(Request $request): RedirectResponse
     {
         Auth::guard('web')->logout();
@@ -87,6 +137,8 @@ class AdminController extends Controller
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
+
+        session()->put('OTPSESSIONKEY', false);
 
         return redirect()->route('tracki.auth.signin');
         // return view('tracki.auth.sign-in');
@@ -105,6 +157,11 @@ class AdminController extends Controller
 
         Auth::guard('web')->logout();
         return view('tracki.auth.sign-in');
+    }
+
+    public function showOtp()
+    {
+        return view('tracki.auth.otp');
     }
 
     public function signUp()

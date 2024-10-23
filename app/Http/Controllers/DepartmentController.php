@@ -108,7 +108,7 @@ class DepartmentController extends Controller
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
-            Log::info($validator->errors());
+            // Log::info($validator->errors());
             $error = true;
             // $message = 'Department could not be created';
             $message = implode($validator->errors()->all());

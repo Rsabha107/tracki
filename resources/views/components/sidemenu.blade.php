@@ -626,7 +626,7 @@
                     <div class="nav-item-wrapper">
                         <a
                             class="nav-link label-1"
-                            href="documentation/getting-started.html"
+                            href="#"
                             role="button"
                             data-bs-toggle=""
                             aria-expanded="false">
@@ -635,8 +635,7 @@
                             </div>
                         </a>
                     </div>
-                    <!-- parent pages-->
-                    <div class="nav-item-wrapper">
+                    <!-- <div class="nav-item-wrapper">
                         <a
                             class="nav-link dropdown-indicator label-1"
                             href="#nv-customization"
@@ -670,7 +669,7 @@
                                             <span class="nav-link-text">Configuration</span>
                                         </div>
                                     </a>
-                                    <!-- more inner pages-->
+                                    
                                 </li>
                                 <li class="nav-item">
                                     <a
@@ -680,7 +679,7 @@
                                             <span class="nav-link-text">Styling</span>
                                         </div>
                                     </a>
-                                    <!-- more inner pages-->
+                                    
                                 </li>
                                 <li class="nav-item">
                                     <a
@@ -691,7 +690,7 @@
                                                 class="badge ms-2 badge badge-phoenix badge-phoenix-warning">New</span>
                                         </div>
                                     </a>
-                                    <!-- more inner pages-->
+                                    
                                 </li>
                                 <li class="nav-item">
                                     <a
@@ -701,7 +700,7 @@
                                             <span class="nav-link-text">Dark mode</span>
                                         </div>
                                     </a>
-                                    <!-- more inner pages-->
+                                    
                                 </li>
                                 <li class="nav-item">
                                     <a
@@ -711,13 +710,12 @@
                                             <span class="nav-link-text">Plugin</span>
                                         </div>
                                     </a>
-                                    <!-- more inner pages-->
+                                    
                                 </li>
                             </ul>
                         </div>
-                    </div>
-                    <!-- parent pages-->
-                    <div class="nav-item-wrapper">
+                    </div> -->
+                    <!-- <div class="nav-item-wrapper">
                         <a
                             class="nav-link dropdown-indicator label-1"
                             href="#nv-layouts-doc"
@@ -749,7 +747,7 @@
                                             <span class="nav-link-text">Vertical navbar</span>
                                         </div>
                                     </a>
-                                    <!-- more inner pages-->
+                                    
                                 </li>
                                 <li class="nav-item">
                                     <a
@@ -759,7 +757,7 @@
                                             <span class="nav-link-text">Horizontal navbar</span>
                                         </div>
                                     </a>
-                                    <!-- more inner pages-->
+                                    
                                 </li>
                                 <li class="nav-item">
                                     <a
@@ -769,7 +767,7 @@
                                             <span class="nav-link-text">Combo navbar</span>
                                         </div>
                                     </a>
-                                    <!-- more inner pages-->
+                                    
                                 </li>
                                 <li class="nav-item">
                                     <a
@@ -779,13 +777,12 @@
                                             <span class="nav-link-text">Dual nav</span>
                                         </div>
                                     </a>
-                                    <!-- more inner pages-->
+                                    
                                 </li>
                             </ul>
                         </div>
-                    </div>
-                    <!-- parent pages-->
-                    <div class="nav-item-wrapper">
+                    </div> -->
+                    <!-- <div class="nav-item-wrapper">
                         <a
                             class="nav-link label-1"
                             href="documentation/gulp.html"
@@ -797,9 +794,8 @@
                                         class="fa-brands fa-gulp ms-1 me-1 fa-lg"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Gulp</span></span>
                             </div>
                         </a>
-                    </div>
-                    <!-- parent pages-->
-                    <div class="nav-item-wrapper">
+                    </div> -->
+                    <!-- <div class="nav-item-wrapper">
                         <a
                             class="nav-link label-1"
                             href="documentation/design-file.html"
@@ -810,9 +806,8 @@
                                 <span class="nav-link-icon"><span data-feather="figma"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Design file</span></span>
                             </div>
                         </a>
-                    </div>
-                    <!-- parent pages-->
-                    <div class="nav-item-wrapper">
+                    </div> -->
+                    <!-- <div class="nav-item-wrapper">
                         <a
                             class="nav-link label-1"
                             href="changelog.html"
@@ -823,9 +818,8 @@
                                 <span class="nav-link-icon"><span data-feather="git-merge"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Changelog</span></span>
                             </div>
                         </a>
-                    </div>
-                    <!-- parent pages-->
-                    <div class="nav-item-wrapper">
+                    </div> -->
+                    <!-- <div class="nav-item-wrapper">
                         <a
                             class="nav-link label-1"
                             href="showcase.html"
@@ -836,7 +830,7 @@
                                 <span class="nav-link-icon"><span data-feather="monitor"></span></span><span class="nav-link-text-wrapper"><span class="nav-link-text">Showcase</span></span>
                             </div>
                         </a>
-                    </div>
+                    </div> -->
                 </li>
             </ul>
         </div>

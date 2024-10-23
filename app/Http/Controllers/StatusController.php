@@ -55,7 +55,7 @@ class StatusController extends Controller
         // dd($validator);
 
         if ($validator->fails()) {
-            Log::info($validator->errors());
+            // Log::info($validator->errors());
             $error = true;
             $message = 'Status couldn\'t created id' . $op->id;
         } else {

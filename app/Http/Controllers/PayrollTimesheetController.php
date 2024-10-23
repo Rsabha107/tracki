@@ -38,7 +38,8 @@ class PayrollTimesheetController extends Controller
     {
         //
         // dd($id);
-        $employee_timesheets = EmployeeTimeSheet::all();
+        // dd(session()->exists('OTPSESSIONKEY'));
+        // $employee_timesheets = EmployeeTimeSheet::all();
         $timesheet_periods = EmployeeTimeSheet::select('timesheet_period')->distinct()->get();
 
         // $employees = Employee::all();
@@ -46,12 +47,12 @@ class PayrollTimesheetController extends Controller
             return $query->where('employees_all.id', $id);
         })->get();
         $employee_leave_statuses = EmployeeLeaveStatus::all();
-        $months_name = MonthsNames::orderBy('month_order', 'ASC')->get();
+        // $months_name = MonthsNames::orderBy('month_order', 'ASC')->get();
         // $emp = Employee::findOrFail(auth()->user()->employee_id);
 
         // dd(FacadesRoute::currentRouteName());
         // dd(FacadesRequest::url());
-        return view('tracki.payroll.timesheet.list', compact('employees', 'employee_leave_statuses', 'months_name', 'employee_timesheets','timesheet_periods'));
+        return view('tracki.payroll.timesheet.list', compact('employees', 'employee_leave_statuses','timesheet_periods'));
     }
 
 
@@ -281,7 +282,7 @@ class PayrollTimesheetController extends Controller
         // search dropdown
         $period = (request()->period) ? request()->period : "";
         $status = (request()->status) ? request()->status : "";
-        Log::alert(request()->all());
+        // Log::alert(request()->all());
 
 
         $op = EmployeeTimeSheet::orderBy($sort, $order);
@@ -460,7 +461,7 @@ class PayrollTimesheetController extends Controller
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
-            Log::info($validator->errors());
+            // Log::info($validator->errors());
             $error = true;
             $message = 'Leave not create.' . $op->id;
         } else {
@@ -585,7 +586,7 @@ class PayrollTimesheetController extends Controller
             $performer_id = 68;
         }
 
-        Log::info('performer_id = ' . $performer_id);
+        // Log::info('performer_id = ' . $performer_id);
 
         $employee_leaves = EmployeeLeave::findOrFail($request->id);
 

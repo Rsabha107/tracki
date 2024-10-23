@@ -141,7 +141,7 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
         Route::get('/tracki/sec/adminuser/add', [RoleController::class, 'addAdminUser'])->name('tracki.sec.adminuser.add');
     });  //
 
-    Route::middleware(['auth', 'prevent-back-history'])->group(function () {
+    Route::middleware(['auth', 'otp'])->group(function () {
 
 
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -202,12 +202,14 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
 
         // Payroll
         //*********timesheet */
+        // Route::middleware('otp')->group(function () {
+        // Route::group(['middleware' => ['otp']], function () {
         Route::get('/tracki/payroll/timesheet', [PayrollTimesheetController::class, 'index'])->name('tracki.payroll.timesheet')->middleware('permission:employee.show');
         Route::get('/tracki/payroll/timesheet/review/{id}', [PayrollTimesheetController::class, 'reviewed'])->name('tracki.payroll.timesheet.review')->middleware('permission:employee.show');
         Route::get('/tracki/payroll/timesheet/list/{id?}', [PayrollTimesheetController::class, 'list'])->name('tracki.payroll.timesheet.list');
         Route::get('/tracki/payroll/timesheet/missing', [PayrollTimesheetController::class, 'missingTimesheet'])->name('tracki.payroll.timesheet.missing');
         Route::get('/tracki/payroll/timesheet/missing/list', [PayrollTimesheetController::class, 'listMissingTimesheet'])->name('tracki.payroll.timesheet.missing.list');
-
+        // });
         // **************bank
         Route::get('/tracki/payroll/bank', [PayrollBankController::class, 'index'])->name('tracki.payroll.bank')->middleware('permission:employee.show');
         Route::get('/tracki/payroll/bank/list', [PayrollBankController::class, 'list'])->name('tracki.payroll.bank.list')->middleware('permission:employee.show');
@@ -645,6 +647,11 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
     //     Route::get('/agent/dashboard', [AgentController::class, 'agentDashboard'])->name('agent.dashboard');
     // });  // End groupd agent middleware
 
+    Route::middleware(['auth'])->group(function () {
+        Route::get('tracki/auth/otp', [AdminController::class, 'showOtp'])->name('otp.get');
+        Route::post('verify-otp', [AdminController::class, 'verifyOtpAndLogin'])->name('auth.otp.post');
+    });
+
     Route::middleware(['prevent-back-history'])->group(function () {
 
         Route::get('/tracki/auth/signin', [AdminController::class, 'signIn'])->name('tracki.auth.signin')->middleware('prevent-back-history');
@@ -653,8 +660,8 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
         Route::get('/tracki/auth/forgot', [AdminController::class, 'forgotPassword'])->name('tracki.auth.forgot');
         Route::post('forget-password', [AdminController::class, 'submitForgetPasswordForm'])->name('forgot.password.post');
         Route::get('tracki/auth/reset/{token}', [AdminController::class, 'showResetPasswordForm'])->name('reset.password.get');
-        Route::post('reset-password', [AdminController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
+        Route::post('reset-password', [AdminController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
         Route::get('/send-mail', [SendMailController::class, 'index']);
         Route::get('/send-mail2', [SendMailController::class, 'sendTaskAssignmentEmail']);

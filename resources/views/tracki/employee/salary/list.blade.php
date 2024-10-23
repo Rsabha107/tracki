@@ -8,7 +8,7 @@
 
 <div class="content">
     <div class="container-fluid">
-        <div class="d-flex justify-content-between mb-2 mt-4">
+        <div class="d-flex justify-content-between mb-1 mt-2">
             <div class="d-flex justify-content-between m-2">
                 <div>
                     <nav aria-label="breadcrumb">
@@ -26,11 +26,6 @@
                     </nav>
                 </div>
             </div>
-            <div class="d-flex justify-content-center">
-                <div id="cover-spin" style="display:none;" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-            </div>
             @if (Auth::user()->can('salary.create'))
             <div>
                 <a href="#!" id="add_employee_salary" data-action="store" data-source="manage" data-type="add" data-table="employee_salary_table" data-id="0">
@@ -41,17 +36,13 @@
             </div>
             @endif
         </div>
+        <div class="row g-3 mb-4">
+            <div class="col-auto">
+                <h2 class="mb-0">Salaries</h2>
+            </div>
+        </div>
         <x-employee-salary-card employeeid="" />
     </div>
-
-    <script>
-        var label_update = '<?= get_label('update', 'Update') ?>';
-        var label_view = '<?= get_label('view', 'Quick view') ?>';
-        var label_delete = '<?= get_label('delete', 'Delete') ?>';
-        var label_not_assigned = '<?= get_label('not_assigned', 'Not assigned') ?>';
-        var can_edit = <?= (Auth::user()->can('employee.edit')) == '' ? '0' : '1' ?>;
-        var can_delete = <?= (Auth::user()->can('employee.delete')) == '' ? '0' : '1' ?>;
-    </script>
     <script src="{{asset('assets/js/pages/employees_salary.js')}}"></script>
 
     @endsection

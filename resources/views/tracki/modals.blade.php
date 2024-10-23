@@ -1586,6 +1586,9 @@
                         <!-- <div class="mb-3 row"> -->
 
                         @if(Request::is('tracki/employee/profile*')||auth()->user()->hasRole('User'))
+                        @php
+                            $employee_id = null;
+                        @endphp
                         @foreach ($employees as $key => $item)
                         @php
                         $employee_id = $item->id;

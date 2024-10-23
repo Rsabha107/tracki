@@ -30,7 +30,7 @@
         </div>
         <div class="row g-3 mb-4">
             <div class="col-auto">
-                <h2 class="mb-0">Employees</h2>
+                <h2 class="mb-0">Bank File</h2>
             </div>
         </div>
         <div class="mb-4 mt-4">
